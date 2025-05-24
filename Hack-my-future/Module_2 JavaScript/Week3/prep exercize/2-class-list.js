@@ -8,26 +8,45 @@ import { modules, students, mentors, classes } from "./hyf.js";
  *  ['John', 'Mary']
  */
 const possibleMentorsForModule = (moduleName) => {
-  return mentors
-    .filter((mentor) => mentor.canTeach.includes(moduleName))
-    .map((mentor) => mentor.name);
-};
-console.log(possibleMentorsForModule('using-apis'));
+  const result = []; // Create an empty array
 
+  for (let i = 0; i < mentors.length; i++) {
+    const mentor = mentors[i];
+
+    // Check if this mentor can teach the module
+    if (mentor.canTeach.includes(moduleName)) {
+      result.push(mentor.name); // Add the mentor's name to the result
+    }
+  }
+
+  return result; // Return the list of names
+};
+
+console.log(possibleMentorsForModule("using-apis"));
 /**
  * Tjebbe wants to make it even easier for himself.
  * Fill in this function that chooses a random mentor to teach the given module.
  *
  * It should return a single name.
  */
+
 const findMentorForModule = (moduleName) => {
-  const possibleMentors = mentors.filter((mentor) =>
-    mentor.canTeach.includes(moduleName)
-  );
-  const randomIndex = Math.floor(Math.random() * possibleMentors.length);
-  if (possibleMentors.length === 0) {
+  const result = [];
+
+  for (let i = 0; i < mentors.length; i++) {
+    const mentor = mentors[i];
+
+    if (mentor.canTeach.includes(moduleName)) {
+      result.push(mentor);
+    }
+  }
+
+  if (result.length === 0) {
     return null;
   }
-  return possibleMentors[randomIndex].name;
+
+  const randomIndex = Math.floor(Math.random() * result.length);
+  return result[randomIndex].name;
 };
- console.log(findMentorForModule('javascript'));
+
+console.log(findMentorForModule("javascript"));
