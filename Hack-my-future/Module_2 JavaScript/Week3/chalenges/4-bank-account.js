@@ -28,11 +28,33 @@ const bankAccount = {
 };
 
 const donateMoney = (amount, onSuccess, onFail) => {
-  // TODO complete this function
+  processTransaction(amount, "Donation", onSuccess, onFail);
 };
+const processTransaction = (amount, reason, onSuccess, onFail) => {
+  if (bankAccount.currentBalance >= amount) {
+    const prevAmount = bankAccount.currentBalance;
+    bankAccount.currentBalance -= amount;
+    bankAccount.transactions.push({
+      prevAmount: prevAmount,
+      newAmount: bankAccount.currentBalance,
+      reason: reason,
+    });
+    onSuccess();
+  } else {
+    onFail();
+  }
+};
+
 const payRent = (amount, onSuccess, onFail) => {
-  // TODO complete this function
+  processTransaction(amount, "Rent", onSuccess, onFail);
 };
+if (typeof module !== "undefined") {
+  module.exports = {
+    bankAccount,
+    donateMoney,
+    payRent,
+  };
+}
 
 /**
  * TEST CODE. DO NOT EDIT

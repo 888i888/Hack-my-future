@@ -20,3 +20,19 @@ const passwordList = [
   { times: "1-3", letter: "b", password: "cdefg" },
   { times: "2-9", letter: "c", password: "ccccccccc" },
 ];
+for (const entry of passwordList) {
+  const [min, max] = entry.times.split("-").map(Number);
+  const letterCount = (
+    entry.password.match(new RegExp(entry.letter, "g")) || []
+  ).length;
+
+  if (letterCount >= min && letterCount <= max) {
+    console.log(
+      `'${entry.password}' is VALID, ${entry.letter} is present ${letterCount} times and should have been present at least ${min} and at most ${max} times`
+    );
+  } else {
+    console.log(
+      `'${entry.password}' is INVALID, ${entry.letter} is present ${letterCount} times and should have been present at least ${min} and at most ${max} times`
+    );
+  }
+}
