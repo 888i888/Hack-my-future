@@ -32,3 +32,7 @@ const findMentorForModule = (moduleName) => {
   return possibleMentors[randomIndex].name;
 };
 console.log(findMentorForModule("javascript"));
+console.assert(
+  findMentorForModule("javascript") !== null,
+  "The result is not correct, it should return a mentor name"
+);
