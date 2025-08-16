@@ -33,7 +33,7 @@ In the following "code along" you'll be building a complete Weather App that mak
 
 This week we expect you to do the exercises in the corresponding module/week folder (Using API's / Week 2). Have a look at the [assignments guide](https://github.com/HackYourFuture/UsingAPIs/blob/main/hand-in-assignments-guide.md) to see how to hand in your assignments.
 
-*NOTE: do NOT forget to checkout the main branch before creating the branch for this week. Otherwise your previous assignments will be a part of the PR*
+*NOTE: do NOT forget to checkout   the main branch before creating the branch for this week. Otherwise your previous assignments will be a part of the PR*
 
 ## **5. Career Training 1 (If not completed yet)**
 
